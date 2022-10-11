@@ -27,7 +27,7 @@ $snapshotNameOS = "snap_$($snapshotdisk.OsDisk.Name)_snap_osdisk_$(Get-Date -For
 
 # OS Disk Snapshot
 
-New-AzSnapshot -ResourceGroupName $VmResourceGroup -SnapshotName $snapshotNameOS -Snapshot $OSDiskSnapshotConfig -ErrorAction Stop
+# New-AzSnapshot -ResourceGroupName $VmResourceGroup -SnapshotName $snapshotNameOS -Snapshot $OSDiskSnapshotConfig -ErrorAction Stop
 $snapscreated += $snapshotNameOS
 
 Write-Output "VM $($vm.name) OS Disk Snapshot End"
@@ -48,7 +48,7 @@ foreach ($datadisk in $datadisks) {
     $DataDiskSnapshotConfig = New-AzSnapshotConfig -SourceUri $dataDisk.Id -CreateOption Copy -Location australiaeast
     $snapshotNameData = "snap_$($datadisk.name)_snap_datadisk_$(Get-Date -Format ddMMyyhhmm)"
 
-    New-AzSnapshot -ResourceGroupName $VmResourceGroup -SnapshotName $snapshotNameData -Snapshot $DataDiskSnapshotConfig -ErrorAction Stop
+   # New-AzSnapshot -ResourceGroupName $VmResourceGroup -SnapshotName $snapshotNameData -Snapshot $DataDiskSnapshotConfig -ErrorAction Stop
 
     $snapscreated += $snapshotNameData
     
